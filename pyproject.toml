@@ -1,0 +1,45 @@
+[build-system]
+requires = ['setuptools']
+build-backend = 'setuptools.build_meta'
+
+[project]
+name = 'python-gui-sample'
+version = '0.1.0'
+description = 'Sample Python GUI application to try out GUI libraries'
+readme = 'README.md'
+keywords = ['Python', 'GUI', 'TKinter', 'PySide', 'example']
+license = { text = 'MIT' }
+authors = [
+    { name = 'Marek Suchánek', email = 'marek.suchanek@cvut.cz' }
+]
+classifiers = [
+    'Development Status :: 4 - Beta',
+    'License :: OSI Approved :: MIT License',
+    'Programming Language :: Python',
+    'Programming Language :: Python :: 3.13',
+    'Topic :: Utilities',
+]
+requires-python = '>=3.12, <4'
+dependencies = [
+    'pyside6',
+]
+
+[project.urls]
+Repository = 'https://github.com/MarekSuchanek/python-gui-sample'
+
+[project.gui-scripts]
+pygui-tkinter = 'python_gui_sample.gui_tkinter:main'
+pygui-pyside = 'python_gui_sample.gui_pyside:main'
+
+[tool.setuptools]
+zip-safe = false
+
+[tool.setuptools.packages.find]
+namespaces = true
+where = ['src']
+
+[tool.setuptools.package-data]
+'*' = ['*.css', '*.js', '*.j2', '*.png']
+
+[tool.distutils.bdist_wheel]
+universal = true
